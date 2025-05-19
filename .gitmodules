@@ -1,0 +1,3 @@
+[submodule "poultry-cuda"]
+	path = poultry-cuda
+	url = https://github.com/magdiperper12/poultry-cuda.git

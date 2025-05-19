@@ -83,7 +83,7 @@ const UsersList = () => {
 					placeholder='ابحث عن مستخدم...'
 					value={search}
 					onChange={(e) => setSearch(e.target.value)}
-					className='w-full sm:w-1/2 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring focus:border-indigo-500'
+					className='w-full sm:w-1/2 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring focus:border-indigo-500 text-darkprimary'
 				/>
 
 				<div className='flex gap-2'>

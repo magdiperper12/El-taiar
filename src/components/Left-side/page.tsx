@@ -38,17 +38,17 @@ const menuItems: MenuItem[] = [
 	{
 		icon: <FaServicestack className='text-yellow-600 text-xl' />,
 		label: 'Comments report',
-		href: '/Comments',
+		href: '/report/Comments',
 	},
 	{
 		icon: <FaHouseChimneyCrack className='text-yellow-600 text-xl' />,
 		label: 'Posts report',
-		href: '/Post-report',
+		href: '/report/Post-report',
 	},
 	{
 		icon: <FaYoutube className='text-yellow-600 text-xl' />,
 		label: 'Profile report',
-		href: '/Profile-Report',
+		href: '/report/Profile-Report',
 	},
 	{
 		icon: <FiBox className='text-yellow-600 text-xl' />,
@@ -58,7 +58,7 @@ const menuItems: MenuItem[] = [
 	{
 		icon: <FiSettings className='text-yellow-600 text-xl ' />,
 		label: 'Flutter version',
-		href: '/temperature',
+		href: '/Flutter',
 	},
 ];
 

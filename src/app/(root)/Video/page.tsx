@@ -54,7 +54,7 @@ const VideoLibrary = () => {
 	});
 
 	return (
-		<div className='p-6 max-w-7xl mx-auto text-gray-800'>
+		<div className='p-6 max-w-7xl mx-auto text-forth dark:text-darkforth'>
 			<h2 className='text-3xl font-bold mb-6'>مكتبة الفيديوهات</h2>
 
 			{/* البحث والتصنيف */}
@@ -62,13 +62,13 @@ const VideoLibrary = () => {
 				<input
 					type='text'
 					placeholder='ابحث عن فيديو...'
-					className='border border-gray-300 rounded px-4 py-2 w-full sm:w-64'
+					className='border border-secoundry dark:border-darksecoundry bg-primary dark:bg-darkprimary rounded px-4 py-2 w-full sm:w-64 focus:outline-none'
 					value={search}
 					onChange={(e) => setSearch(e.target.value)}
 				/>
 
 				<select
-					className='border border-gray-300 rounded px-4 py-2'
+					className='border border-secoundry dark:border-darksecoundry bg-primary dark:bg-darkprimary rounded px-4 py-2 text-forth dark:text-darkforth'
 					value={selectedCategory}
 					onChange={(e) => setSelectedCategory(e.target.value)}>
 					{categories.map((cat) => (
@@ -84,7 +84,7 @@ const VideoLibrary = () => {
 			{/* قائمة الفيديوهات */}
 			<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
 				{filteredVideos.length === 0 && (
-					<p className='col-span-full text-center text-gray-500'>
+					<p className='col-span-full text-center text-secoundry dark:text-darksecoundry'>
 						لا يوجد فيديوهات مطابقة
 					</p>
 				)}
@@ -92,7 +92,7 @@ const VideoLibrary = () => {
 				{filteredVideos.map((video) => (
 					<div
 						key={video.id}
-						className='border rounded shadow hover:shadow-lg cursor-pointer'
+						className='border border-secoundry dark:border-darksecoundry bg-primary dark:bg-darkprimary rounded shadow hover:shadow-lg cursor-pointer'
 						onClick={() => setSelectedVideo(video)}>
 						<img
 							src={video.thumbnail}
@@ -101,7 +101,9 @@ const VideoLibrary = () => {
 						/>
 						<div className='p-4'>
 							<h3 className='text-lg font-semibold'>{video.title}</h3>
-							<p className='text-gray-600 text-sm mt-1'>{video.description}</p>
+							<p className='text-third dark:text-darkthird text-sm mt-1'>
+								{video.description}
+							</p>
 						</div>
 					</div>
 				))}
@@ -110,9 +112,9 @@ const VideoLibrary = () => {
 			{/* عرض الفيديو المختار */}
 			{selectedVideo && (
 				<div className='fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center p-4 z-50'>
-					<div className='bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-auto relative'>
+					<div className='bg-primary dark:bg-darkprimary rounded-lg max-w-4xl w-full max-h-[90vh] overflow-auto relative'>
 						<button
-							className='absolute top-3 right-3 text-gray-700 hover:text-gray-900 text-2xl font-bold'
+							className='absolute top-3 right-3 text-forth dark:text-darkforth hover:text-red-600 text-2xl font-bold'
 							onClick={() => setSelectedVideo(null)}
 							aria-label='إغلاق'>
 							×
@@ -125,8 +127,8 @@ const VideoLibrary = () => {
 						/>
 						<div className='p-4'>
 							<h3 className='text-xl font-bold'>{selectedVideo.title}</h3>
-							<p className='mt-2 text-gray-700'>{selectedVideo.description}</p>
-							<p className='mt-1 text-sm text-gray-500'>
+							<p className='mt-2'>{selectedVideo.description}</p>
+							<p className='mt-1 text-sm text-secoundry dark:text-darksecoundry'>
 								التصنيف: {selectedVideo.category}
 							</p>
 						</div>

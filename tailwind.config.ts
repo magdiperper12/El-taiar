@@ -9,16 +9,15 @@ const config: Config = {
 	theme: {
 		extend: {
 			colors: {
-				primary: '#d9d9d95e',
-				secoundry: '#FFD8A9',
-				third: '#F1A661',
-				forth: '#E38B29',
-				darkprimary: '#000000',
-				darksecoundry: '#854836',
-				darkthird: '#FFB22C',
-				darkforth: '#F7F7F7',
+				primary: '#F5EFFF', // brand‑600
+				darkprimary: '#4B164C', // brand‑950
+				secoundry: '#8DD8FF', // blue‑700
+				darksecoundry: '#DD88CF', // blue‑950
+				third: '#4E71FF', // gray‑600
+				darkthird: '#F8E7F6', // gray‑950
+				forth: '#5409DA', // orange‑200
+				darkforth: '#F5F5F5', // orange‑950
 			},
-
 			animation: {
 				fadeIn: 'fadeIn 0.7s ease-in-out forwards',
 				'slide-in-down': 'slideInDown 0.6s ease-out',

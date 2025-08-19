@@ -33,29 +33,45 @@ const dummyPostReports: PostReport[] = [
 const PostReportPage = () => {
 	return (
 		<motion.div
-			className='p-6 bg-white rounded-xl shadow-md'
+			className='p-6 bg-primary dark:bg-darkprimary rounded-xl shadow-md'
 			initial={{ opacity: 0, y: 30 }}
 			animate={{ opacity: 1, y: 0 }}>
-			<h1 className='text-2xl font-bold mb-6'>بلاغات المنشورات</h1>
+			<h1 className='text-2xl font-bold mb-6 text-forth dark:text-darkforth'>
+				بلاغات المنشورات
+			</h1>
 
 			<div className='overflow-auto'>
-				<table className='min-w-full border border-gray-200 text-sm text-right'>
-					<thead className='bg-gray-500'>
+				<table className='min-w-full border border-secoundry dark:border-darksecoundry text-sm text-right'>
+					<thead className='bg-third dark:bg-darkthird text-forth dark:text-darkforth'>
 						<tr>
-							<th className='p-3 border-b'>#</th>
-							<th className='p-3 border-b'>عنوان المنشور</th>
-							<th className='p-3 border-b'>اسم المُبلّغ</th>
-							<th className='p-3 border-b'>سبب البلاغ</th>
-							<th className='p-3 border-b'>عدد البلاغات</th>
-							<th className='p-3 border-b'>تاريخ البلاغ</th>
-							<th className='p-3 border-b'>الإجراءات</th>
+							<th className='p-3 border-b border-secoundry dark:border-darksecoundry'>
+								#
+							</th>
+							<th className='p-3 border-b border-secoundry dark:border-darksecoundry'>
+								عنوان المنشور
+							</th>
+							<th className='p-3 border-b border-secoundry dark:border-darksecoundry'>
+								اسم المُبلّغ
+							</th>
+							<th className='p-3 border-b border-secoundry dark:border-darksecoundry'>
+								سبب البلاغ
+							</th>
+							<th className='p-3 border-b border-secoundry dark:border-darksecoundry'>
+								عدد البلاغات
+							</th>
+							<th className='p-3 border-b border-secoundry dark:border-darksecoundry'>
+								تاريخ البلاغ
+							</th>
+							<th className='p-3 border-b border-secoundry dark:border-darksecoundry'>
+								الإجراءات
+							</th>
 						</tr>
 					</thead>
 					<tbody>
 						{dummyPostReports.map((report, index) => (
 							<tr
 								key={report.id}
-								className='border-b hover:bg-gray-50 text-gray-800'>
+								className='border-b border-secoundry dark:border-darksecoundry hover:bg-forth dark:hover:bg-darkforth text-forth dark:text-darkforth'>
 								<td className='p-3'>{index + 1}</td>
 								<td className='p-3'>{report.postTitle}</td>
 								<td className='p-3'>{report.reporterName}</td>
@@ -66,7 +82,7 @@ const PostReportPage = () => {
 									<button className='bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700 text-xs'>
 										حذف المنشور
 									</button>
-									<button className='border border-gray-300 text-gray-700 px-3 py-1 rounded hover:bg-gray-100 text-xs'>
+									<button className='border border-secoundry dark:border-darksecoundry text-third dark:text-darkthird px-3 py-1 rounded hover:bg-third dark:hover:bg-darkthird text-xs'>
 										تجاهل
 									</button>
 								</td>

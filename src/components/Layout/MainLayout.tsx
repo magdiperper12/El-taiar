@@ -12,7 +12,7 @@ export default function MainLayout({
 	const [showSidebar, setShowSidebar] = useState(true);
 
 	return (
-		<div className='flex w-full h-screen bg-primary text-white dark:bg-darkprimary dark:text-white'>
+		<div className='flex w-full max-h-screen overflow-hidden bg-white text-darkprimary/70 dark:bg-darkprimary dark:text-white'>
 			{showSidebar && (
 				<aside className='hidden lg:block bg-white dark:bg-gray-800'>
 					<LeftSide />
@@ -24,7 +24,7 @@ export default function MainLayout({
 					showSidebar={showSidebar}
 					toggleSidebar={() => setShowSidebar((prev) => !prev)}
 				/>
-				<div className='flex-1 pt-16 overflow-y-auto px-4 sm:px-6'>
+				<div className='flex-1 pt-16 overflow-y-auto px-4 sm:px-6 '>
 					{children}
 				</div>
 			</main>

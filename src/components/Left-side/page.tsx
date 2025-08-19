@@ -4,12 +4,15 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
-import { FaRobot, FaServicestack, FaYoutube } from 'react-icons/fa';
-import { FiBox, FiSave, FiSettings } from 'react-icons/fi';
+import { FaHome, FaRobot, FaServicestack, FaYoutube } from 'react-icons/fa';
+import { FiBox, FiSettings } from 'react-icons/fi';
 import { TbLayoutKanban } from 'react-icons/tb';
 import { CgMenuRound } from 'react-icons/cg';
-import { FaHouseChimneyCrack } from 'react-icons/fa6';
+import { FaHouseChimneyCrack, FaUserGroup } from 'react-icons/fa6';
 import Profile from '../Header/profile';
+import { LuShoppingBag } from 'react-icons/lu';
+import { GrAnalytics, GrDeliver } from 'react-icons/gr';
+import { IoSettingsSharp } from 'react-icons/io5';
 
 type MenuItem = {
 	icon: React.ReactNode;
@@ -20,45 +23,35 @@ type MenuItem = {
 
 const menuItems: MenuItem[] = [
 	{
-		icon: <CgMenuRound className='text-2xl' />,
+		icon: <CgMenuRound className='text-2xl  dark:text-darkforth' />,
 		label: 'Dashboard',
 		href: null,
 	},
 	{
-		icon: <FaRobot className='text-yellow-600 text-xl' />,
-		label: 'Price',
+		icon: <LuShoppingBag className=' dark:text-darkthird text-xl' />,
+		label: 'Orders',
 		href: '/Price',
 		badge: 'Pro',
 	},
 	{
-		icon: <TbLayoutKanban className='text-yellow-600 text-xl' />,
-		label: 'Users',
+		icon: <GrDeliver className=' dark:text-darkthird text-xl' />,
+		label: 'Deliveries',
 		href: '/Users',
 	},
 	{
-		icon: <FaServicestack className='text-yellow-600 text-xl' />,
-		label: 'Comments report',
+		icon: <FaUserGroup className=' dark:text-darkthird text-xl' />,
+		label: 'Customers',
 		href: '/report/Comments',
 	},
 	{
-		icon: <FaHouseChimneyCrack className='text-yellow-600 text-xl' />,
-		label: 'Posts report',
+		icon: <GrAnalytics className=' dark:text-darkthird text-xl' />,
+		label: 'Analytics',
 		href: '/report/Post-report',
 	},
 	{
-		icon: <FaYoutube className='text-yellow-600 text-xl' />,
-		label: 'Profile report',
+		icon: <IoSettingsSharp className=' dark:text-darkthird text-xl' />,
+		label: 'Settings',
 		href: '/report/Profile-Report',
-	},
-	{
-		icon: <FiBox className='text-yellow-600 text-xl' />,
-		label: 'Video Library',
-		href: '/Video',
-	},
-	{
-		icon: <FiSettings className='text-yellow-600 text-xl ' />,
-		label: 'Flutter version',
-		href: '/Flutter',
 	},
 ];
 
@@ -87,7 +80,7 @@ function LeftSide() {
 	}, []);
 
 	useEffect(() => {
-		// Auto close sidebar on mobile after link click
+		// إغلاق الشريط الجانبي تلقائياً على الموبايل بعد اختيار رابط
 		if (window.innerWidth < 1024) {
 			setIsOpen(false);
 		}
@@ -97,14 +90,15 @@ function LeftSide() {
 
 	return (
 		<>
-			{/* Toggle Button */}
+			{/* زر التبديل */}
 			<button
-				className='lg:hidden fixed top-4 left-4 z-50  bg-transparent p-2 rounded-full shadow-md'
+				className='lg:hidden fixed top-4 left-4 z-50 bg-primary dark:bg-darkprimary p-2 rounded-full shadow-md transition-colors duration-300'
 				onClick={() => setIsOpen(!isOpen)}>
-				<CgMenuRound className='text-2xl text-gray-800 dark:text-white' />
+				<CgMenuRound className='text-2xl text-darkprimary/60 dark:text-secoundry transition-colors duration-300' />
 			</button>
 
-			{/* Sidebar */}
+			{/* الشريط الجانبي */}
+
 			<AnimatePresence>
 				{isOpen && (
 					<motion.aside
@@ -112,7 +106,11 @@ function LeftSide() {
 						animate={{ x: 0, opacity: 1 }}
 						exit={{ x: -250, opacity: 0 }}
 						transition={{ duration: 0.5 }}
-						className='fixed lg:static top-16 lg:top-0 left-0 z-40 w-64 h-screen bg-gray-50 dark:bg-gray-800 shadow-lg lg:shadow-none'>
+						className='fixed lg:static top-16 lg:top-0 left-0 z-40 w-64 h-screen bg-[#F8FAFC] 
+                        dark:bg-darkprimary shadow-lg lg:shadow-none transition-colors duration-300'>
+						<h1 className='text-black text-xl w-full text-center pt-4 font-bold'>
+							EL-Taiar
+						</h1>
 						<div className='h-full py-5 px-3 overflow-y-auto'>
 							<ul className='space-y-2 font-medium'>
 								{menuItems.map((item, idx) => (
@@ -126,15 +124,13 @@ function LeftSide() {
 												variants={itemVariants}>
 												<Link
 													href={item.href}
-													className='flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group'>
-													<span className='w-5 h-5 text-gray-500 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white'>
-														{item.icon}
-													</span>
+													className='flex items-center p-2 rounded-lg text-darkprimary dark:text-secoundry hover:bg-[#2563EB] hover:text-white focus:bg-[#2563EB]  focus:text-white dark:hover:bg-darkforth group transition-colors duration-300'>
+													<span className='w-5 h-5 '>{item.icon}</span>
 													<span className='flex-1 ms-3 whitespace-nowrap'>
 														{item.label}
 													</span>
 													{item.badge && (
-														<span className='inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300'>
+														<span className='inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-white bg-[#2563EB] rounded-full dark:bg-darkforth dark:text-darkprimary'>
 															{item.badge}
 														</span>
 													)}
@@ -147,19 +143,18 @@ function LeftSide() {
 												exit='hidden'
 												custom={idx}
 												variants={itemVariants}
-												className='text-white bg-orange-500 rounded-3xl p-1'>
-												<span className='flex items-center justify-center p-1 text-lg font-medium rounded-lg group'>
-													<span className='w-5 h-5 mr-2 -mt-2'>
-														{item.icon}
-													</span>
-													{item.label}
-												</span>
+												className='text-white  bg-[#2563EB] rounded-3xl p-1 transition-colors duration-300'>
+												<Link
+													href={'/'}
+													className='flex items-center justify-center p-1 text-lg font-medium rounded-lg group gap-2'>
+													<FaHome /> {item.label}
+												</Link>
 											</motion.li>
 										)}
 									</AnimatePresence>
 								))}
 							</ul>
-							<div className='lg:hidden mt-5'>
+							<div className='absolute bottom-24 lg:bottom-6 '>
 								<Profile />
 							</div>
 						</div>

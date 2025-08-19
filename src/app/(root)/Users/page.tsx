@@ -68,9 +68,9 @@ const UsersList = () => {
 	});
 
 	return (
-		<div className='p-6 bg-gray-50 min-h-screen'>
+		<div className='p-6 bg-primary dark:bg-darkprimary min-h-screen transition-colors duration-300'>
 			<motion.h2
-				className='text-2xl font-bold mb-4 text-gray-700'
+				className='text-2xl font-bold mb-4 text-forth dark:text-darkforth'
 				initial={{ y: -20, opacity: 0 }}
 				animate={{ y: 0, opacity: 1 }}>
 				المستخدمون
@@ -83,7 +83,7 @@ const UsersList = () => {
 					placeholder='ابحث عن مستخدم...'
 					value={search}
 					onChange={(e) => setSearch(e.target.value)}
-					className='w-full sm:w-1/2 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring focus:border-indigo-500 text-darkprimary'
+					className='w-full sm:w-1/2 px-4 py-2 border border-secoundry rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-third focus:border-third text-third dark:text-darkthird dark:bg-darkprimary'
 				/>
 
 				<div className='flex gap-2'>
@@ -91,8 +91,8 @@ const UsersList = () => {
 						onClick={() => setFilter('notary')}
 						className={`px-4 py-2 rounded-md text-sm font-medium ${
 							filter === 'notary'
-								? 'bg-indigo-600 text-white'
-								: 'bg-indigo-100 text-indigo-700'
+								? 'bg-third text-primary'
+								: 'bg-secoundry text-third dark:bg-darksecoundry dark:text-darkthird'
 						}`}>
 						Notaries
 					</button>
@@ -100,8 +100,8 @@ const UsersList = () => {
 						onClick={() => setFilter('blocked')}
 						className={`px-4 py-2 rounded-md text-sm font-medium ${
 							filter === 'blocked'
-								? 'bg-red-600 text-white'
-								: 'bg-red-100 text-red-700'
+								? 'bg-red-600 text-white' // يمكنك تعديل هذه لتستخدم ألوانك إذا تريد
+								: 'bg-secoundry text-third dark:bg-darksecoundry dark:text-darkthird'
 						}`}>
 						Block
 					</button>
@@ -109,8 +109,8 @@ const UsersList = () => {
 						onClick={() => setFilter('all')}
 						className={`px-4 py-2 rounded-md text-sm font-medium ${
 							filter === 'all'
-								? 'bg-gray-600 text-white'
-								: 'bg-gray-100 text-gray-700'
+								? 'bg-forth text-primary'
+								: 'bg-secoundry text-third dark:bg-darksecoundry dark:text-darkthird'
 						}`}>
 						الكل
 					</button>
@@ -118,25 +118,30 @@ const UsersList = () => {
 			</div>
 
 			{/* Users List */}
-			<div className='grid gap-4 grid-cols-1 md:grid-cols-3 lg:grid-cols-4'>
-				{filteredUsers.length > 0 ? (
-					filteredUsers.map((user) => (
+			{filteredUsers.length > 0 ? (
+				<div className='grid gap-4 grid-cols-1 md:grid-cols-3 lg:grid-cols-4'>
+					{filteredUsers.map((user) => (
 						<motion.div
 							key={user.id}
-							className='bg-white shadow p-4 rounded-xl border text-center'
+							className='bg-secoundry dark:bg-darksecoundry shadow p-4 rounded-xl border border-third dark:border-darkthird text-center transition-colors'
 							initial={{ opacity: 0, y: 10 }}
 							animate={{ opacity: 1, y: 0 }}>
-							{' '}
-							<div className='w-16 h-16 rounded-full overflow-hidden bg-gray-200 m-auto'>
-								<img
+							<div className='w-16 h-16 rounded-full overflow-hidden bg-third dark:bg-darkthird m-auto relative'>
+								<Image
 									src={user.image}
 									alt={user.name}
-									className='m-auto  object-cover'
+									fill
+									style={{ objectFit: 'cover' }}
+									sizes='64px'
 								/>
 							</div>
-							<p className='font-semibold text-gray-800'>{user.name}</p>
-							<p className='text-sm text-gray-500'>{user.email}</p>
-							<p className='text-xs text-gray-400 mt-1'>
+							<p className='font-semibold text-primary dark:text-darkprimary mt-2'>
+								{user.name}
+							</p>
+							<p className='text-sm text-third dark:text-darkthird'>
+								{user.email}
+							</p>
+							<p className='text-xs text-third dark:text-darkthird mt-1'>
 								الحالة:{' '}
 								{user.status === 'notary'
 									? 'موثّق'
@@ -145,16 +150,18 @@ const UsersList = () => {
 									: 'عادي'}
 							</p>
 							<Link
-								href={'/Profile'}
-								className='text-white bg-gray-500 px-4 py-1 text-lg my-2 rounded-xl hover:bg-gray-800 transition-all'>
+								href='/profile'
+								className='inline-block mt-2 bg-third dark:bg-darkthird text-primary dark:text-darkprimary px-4 py-1 text-lg rounded-xl hover:bg-primary hover:text-forth dark:hover:bg-primary dark:hover:text-forth transition-colors'>
 								Visit the account
 							</Link>
 						</motion.div>
-					))
-				) : (
-					<p className='text-gray-500'>لا يوجد مستخدمون مطابقون للبحث.</p>
-				)}
-			</div>
+					))}
+				</div>
+			) : (
+				<p className='text-center text-third dark:text-darkthird mt-10'>
+					لا يوجد مستخدمون مطابقون للبحث.
+				</p>
+			)}
 		</div>
 	);
 };

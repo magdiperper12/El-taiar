@@ -75,7 +75,7 @@ export default function DeliveriesPage() {
 	};
 
 	return (
-		<main className='min-h-screen bg-gray-50 p-6 mt-8'>
+		<main className='min-h-screen p-6 mt-8'>
 			{/* Header */}
 			<div className='flex justify-between items-center mb-6'>
 				<h1 className='text-2xl font-semibold'>Deliveries Management</h1>

@@ -54,7 +54,7 @@ const Header = ({ showSidebar, toggleSidebar }: HeaderProps) => {
 					</div>
 				</div>
 				<Link
-					href={'/'}
+					href={'/userprofile'}
 					className='overflow-hidden rounded-full border border-forth dark:border-darkforth shadow-inner transition-colors duration-300'>
 					<span className='sr-only'>Toggle dashboard menu</span>
 

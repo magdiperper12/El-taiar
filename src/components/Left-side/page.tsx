@@ -30,28 +30,24 @@ const menuItems: MenuItem[] = [
 	{
 		icon: <LuShoppingBag className=' dark:text-darkthird text-xl' />,
 		label: 'Orders',
-		href: '/Price',
+		href: '/orders',
 		badge: 'Pro',
 	},
 	{
 		icon: <GrDeliver className=' dark:text-darkthird text-xl' />,
 		label: 'Deliveries',
-		href: '/Users',
+		href: '/deliveries',
 	},
 	{
 		icon: <FaUserGroup className=' dark:text-darkthird text-xl' />,
 		label: 'Customers',
-		href: '/report/Comments',
+		href: '/customer',
 	},
-	{
-		icon: <GrAnalytics className=' dark:text-darkthird text-xl' />,
-		label: 'Analytics',
-		href: '/report/Post-report',
-	},
+
 	{
 		icon: <IoSettingsSharp className=' dark:text-darkthird text-xl' />,
 		label: 'Settings',
-		href: '/report/Profile-Report',
+		href: '/setting',
 	},
 ];
 

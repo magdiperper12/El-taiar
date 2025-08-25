@@ -1,5 +1,6 @@
 'use client'; // إذا كنت تستخدم app router
 import { motion } from 'framer-motion';
+import Dashboard from './dashboard';
 
 const Hero = () => {
 	return (
@@ -12,7 +13,6 @@ const Hero = () => {
 				transition={{ duration: 0.6 }}>
 				لوحة التحكم - الصفحة الرئيسية
 			</motion.h1>
-
 			{/* البطاقات */}
 			<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
 				{[
@@ -44,6 +44,7 @@ const Hero = () => {
 					</motion.div>
 				))}
 			</div>
+			<Dashboard />
 		</div>
 	);
 };
